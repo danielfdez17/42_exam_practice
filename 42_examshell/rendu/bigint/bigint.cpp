@@ -121,7 +121,7 @@ bigint bigint::operator<<(int n) const
 {
 	bigint tmp = *this;
 	if (tmp.str == "0")
-		tmp.str = "1";
+		return tmp;
 	while (n--)
 	{
 		tmp.str.push_back('0');
@@ -152,7 +152,7 @@ bigint bigint::operator>>(bigint const& copy) const
 bigint bigint::operator<<=(int n)
 {
 	if (this->str == "0")
-		this->str = "1";
+		return *this;
 	while (n--)
 	{
 		this->str.push_back('0');
