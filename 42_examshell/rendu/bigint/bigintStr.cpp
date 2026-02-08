@@ -1,4 +1,4 @@
-#include "bigint.hpp"
+#include "bigintStr.hpp"
 #include <sstream>
 
 static inline string rotate(string s)
