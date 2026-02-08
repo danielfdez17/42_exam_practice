@@ -63,28 +63,28 @@ static unsigned long toULong(string s)
 	return ret;
 }
 
-bigint::bigint() : str("0")
+bigintStr::bigintStr() : str("0")
 {
 
 }
-bigint::~bigint()
+bigintStr::~bigintStr()
 {
 
 }
-bigint::bigint(unsigned int n)
+bigintStr::bigintStr(unsigned int n)
 {
 	stringstream ss;
 	ss << n;
 	this->str = ss.str();
 }
-bigint::bigint(bigint const& copy)
+bigintStr::bigintStr(bigintStr const& copy)
 {
 	if (this != &copy)
 	{
 		this->str = copy.str;
 	}
 }
-bigint &bigint::operator=(bigint const& copy)
+bigintStr &bigintStr::operator=(bigintStr const& copy)
 {
 	if (this != &copy)
 	{
@@ -93,33 +93,33 @@ bigint &bigint::operator=(bigint const& copy)
 	return *this;
 }
 
-bigint bigint::operator+(bigint const& copy) const
+bigintStr bigintStr::operator+(bigintStr const& copy) const
 {
-	bigint tmp = *this;
+	bigintStr tmp = *this;
 	tmp.str = addition(this->str, copy.str);
 	return tmp;
 }
-bigint bigint::operator+=(bigint const& copy)
+bigintStr bigintStr::operator+=(bigintStr const& copy)
 {
 	this->str = addition(this->str, copy.str);
 	return *this;
 }
 
-bigint bigint::operator++()
+bigintStr bigintStr::operator++()
 {
 	this->str = addition(this->str, "1");
 	return *this;
 } // pre
-bigint bigint::operator++(int)
+bigintStr bigintStr::operator++(int)
 {
-	bigint tmp = *this;
+	bigintStr tmp = *this;
 	this->str = addition(this->str, "1");
 	return tmp;
 } // post
 
-bigint bigint::operator<<(int n) const
+bigintStr bigintStr::operator<<(int n) const
 {
-	bigint tmp = *this;
+	bigintStr tmp = *this;
 	if (tmp.str == "0")
 		return tmp;
 	while (n--)
@@ -128,28 +128,28 @@ bigint bigint::operator<<(int n) const
 	}
 	return tmp;
 }
-bigint bigint::operator<<(bigint const& copy) const
+bigintStr bigintStr::operator<<(bigintStr const& copy) const
 {
-	bigint tmp = (*this) << toULong(copy.str);
+	bigintStr tmp = (*this) << toULong(copy.str);
 	return tmp;
 }
 
-bigint bigint::operator>>(int n) const
+bigintStr bigintStr::operator>>(int n) const
 {
-	bigint tmp = *this;
+	bigintStr tmp = *this;
 	if (n > this->str.size())
 		tmp.str = "0";
 	else
 		tmp.str.erase(tmp.str.size() - n, n);
 	return tmp;
 }
-bigint bigint::operator>>(bigint const& copy) const
+bigintStr bigintStr::operator>>(bigintStr const& copy) const
 {
-	bigint tmp = (*this) >> toULong(copy.str);
+	bigintStr tmp = (*this) >> toULong(copy.str);
 	return tmp;
 }
 
-bigint bigint::operator<<=(int n)
+bigintStr bigintStr::operator<<=(int n)
 {
 	if (this->str == "0")
 		return *this;
@@ -160,13 +160,13 @@ bigint bigint::operator<<=(int n)
 	return *this;
 }
 
-bigint bigint::operator>>=(bigint const& copy)
+bigintStr bigintStr::operator>>=(bigintStr const& copy)
 {
 	*this = *this >> toULong(copy.str);
 	return *this;
 }
 
-bool bigint::operator<(bigint const& copy) const
+bool bigintStr::operator<(bigintStr const& copy) const
 {
 	return toULong(this->str) < toULong(copy.str);
 	// if (this->str.size() < copy.str.size())
@@ -175,7 +175,7 @@ bool bigint::operator<(bigint const& copy) const
 	// 	return this->str == copy.str;
 	// return false;
 }
-bool bigint::operator>(bigint const& copy) const
+bool bigintStr::operator>(bigintStr const& copy) const
 {
 	return toULong(this->str) > toULong(copy.str);
 	// if (this->str.size() > copy.str.size())
@@ -184,21 +184,21 @@ bool bigint::operator>(bigint const& copy) const
 	// 	return this->str == copy.str;
 	// return false;
 }
-bool bigint::operator==(bigint const& copy) const
+bool bigintStr::operator==(bigintStr const& copy) const
 {
 	return toULong(this->str) == toULong(copy.str);
 	// if (this->str.size() != copy.str.size())
 	// 	return false;
 	// return this->str == copy.str;
 }
-bool bigint::operator!=(bigint const& copy) const
+bool bigintStr::operator!=(bigintStr const& copy) const
 {
 	return toULong(this->str) != toULong(copy.str);
 	// if (this->str.size() != copy.str.size())
 	// 	return true;
 	// return this->str != copy.str;
 }
-bool bigint::operator<=(bigint const& copy) const
+bool bigintStr::operator<=(bigintStr const& copy) const
 {
 	return toULong(this->str) <= toULong(copy.str);
 	// if (this->str.size() < copy.str.size())
@@ -207,7 +207,7 @@ bool bigint::operator<=(bigint const& copy) const
 	// 	return this->str == copy.str;
 	// return false;
 }
-bool bigint::operator>=(bigint const& copy) const
+bool bigintStr::operator>=(bigintStr const& copy) const
 {
 	return toULong(this->str) >= toULong(copy.str);
 	// if (this->str.size() > copy.str.size())
@@ -217,12 +217,12 @@ bool bigint::operator>=(bigint const& copy) const
 	// return false;
 }
 
-string bigint::getStr() const
+string bigintStr::getStr() const
 {
 	return this->str;
 }
 
-ostream &operator<<(ostream &out, bigint const& copy)
+ostream &operator<<(ostream &out, bigintStr const& copy)
 {
 	return out << copy.getStr();
 }

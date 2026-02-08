@@ -5,8 +5,8 @@ using namespace std;
 
 int main(void)
 {
-// 	bigint a(7331);
-// 	bigint b(21), c, d(1337), e(d);
+// 	bigintStr a(7331);
+// 	bigintStr b(21), c, d(1337), e(d);
 
 	// base test
 	// std::cout << "a = " << a << "\n";
@@ -31,7 +31,7 @@ int main(void)
 	// std::cout << "(b << 10) + 42 = " << ((b << 10) + 42) << "\n";
 	// std::cout << "d = " << d << "\n";
 	// std::cout << "(d <<= 4) = " << (d <<= 4) << ", d: " << d << "\n";
-	// std::cout << "(d >>= 2) = " << (d >>= (const bigint)2) << ", d: " << d << "\n";
+	// std::cout << "(d >>= 2) = " << (d >>= (const bigintStr)2) << ", d: " << d << "\n";
 
 	// std::cout << "a = " << a << "\n"; // a = 42
 	// std::cout << "d = " << d << "\n"; // d = 5348
@@ -44,7 +44,7 @@ int main(void)
 	// std::cout << "(d >= a) = " << (d >= a) << "\n"; // (d >= a) = 1
 
 	// extra
-	bigint x(12345678); bigint y(500);
+	bigintStr x(12345678); bigintStr y(500);
 	std::cout << "(x << y) = " << (x << y) << ", x: " << x << ", y: " << y << "\n";
 	std::cout << "(x >>= y) = " << (x >>= y) << ", x: " << x << ", y: " << y << "\n";
 	std::cout << "(x >= y) = " << (x >= y) << ", x: " << x << ", y: " << y << "\n";
