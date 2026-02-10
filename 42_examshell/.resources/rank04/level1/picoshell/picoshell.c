@@ -29,7 +29,7 @@ int    picoshell(char **cmds[])
         }
         if(pid == 0)  //inside child process
         {
-            if(last_fd != -1)    //if not the first command, set up input from previous pipe<
+            if(last_fd != -1)    //if not the first command, set up input from previous pipe
             {
                 if(dup2(last_fd, STDIN_FILENO) == -1)  //dup2 fails
                     exit(1);   //exit child with error
