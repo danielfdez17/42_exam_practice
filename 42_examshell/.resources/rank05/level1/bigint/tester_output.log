@@ -1,0 +1,13 @@
+[0;34m🔍 Running COMPREHENSIVE TESTING for bigint[0m
+==========================================
+
+[0;34m📦 Compiling reference solution...[0m
+[0;32m✅ Reference compilation successful![0m
+
+[0;34m📦 Compiling user solution...[0m
+user_bigint.cpp: In member function ‘bigint bigint::operator>>(int) const’:
+user_bigint.cpp:73:43: error: comparison of integer expressions of different signedness: ‘std::__cxx11::basic_string<char>::size_type’ {aka ‘long unsigned int’} and ‘int’ [-Werror=sign-compare]
+   73 |  if (this->str == "0" || this->str.size() < n)
+      |                          ~~~~~~~~~~~~~~~~~^~~
+cc1plus: all warnings being treated as errors
+[0;31m❌ User compilation failed![0m

@@ -1,0 +1,126 @@
+[0;34m🔍 Running COMPREHENSIVE TESTING for polyset[0m
+==========================================
+
+[0;34m📦 Compiling reference solution...[0m
+In file included from main.cpp:4:
+set.hpp:8:11: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    8 |   set() = delete;
+      |           ^~~~~~
+set.hpp:9:28: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    9 |   set(const set& source) = delete;
+      |                            ^~~~~~
+set.hpp:10:39: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   10 |   set& operator=(const set& source) = delete;
+      |                                       ^~~~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:17:13: error: ‘atoi’ was not declared in this scope
+   17 |   t->insert(atoi(argv[i]));
+      |             ^~~~
+main.cpp:25:23: error: ‘atoi’ was not declared in this scope
+   25 |   std::cout << t->has(atoi(argv[i])) << std::endl;
+      |                       ^~~~
+main.cpp:42:13: error: ‘atoi’ was not declared in this scope
+   42 |   st.insert(atoi(argv[i]));
+      |             ^~~~
+main.cpp:50:20: error: taking address of temporary array
+   50 |   sa.insert((int[]){ 1, 2, 3, 4, }, 4);
+      |                    ^~~~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors
+array_bag.cpp:6:10: error: identifier ‘nullptr’ is a keyword in C++11 [-Werror=c++11-compat]
+    6 |   data = nullptr;
+      |          ^~~~~~~
+array_bag.cpp: In constructor ‘array_bag::array_bag()’:
+array_bag.cpp:6:10: error: ‘nullptr’ was not declared in this scope
+array_bag.cpp: In member function ‘array_bag& array_bag::operator=(const array_bag&)’:
+array_bag.cpp:19:15: error: ‘nullptr’ was not declared in this scope
+   19 |   if (data != nullptr) {
+      |               ^~~~~~~
+array_bag.cpp: In destructor ‘array_bag::~array_bag()’:
+array_bag.cpp:33:14: error: ‘nullptr’ was not declared in this scope
+   33 |  if (data != nullptr) {
+      |              ^~~~~~~
+array_bag.cpp: In member function ‘virtual void array_bag::insert(int)’:
+array_bag.cpp:45:14: error: ‘nullptr’ was not declared in this scope
+   45 |  if (data != nullptr) {
+      |              ^~~~~~~
+array_bag.cpp: In member function ‘virtual void array_bag::insert(int*, int)’:
+array_bag.cpp:60:14: error: ‘nullptr’ was not declared in this scope
+   60 |  if (data != nullptr) {
+      |              ^~~~~~~
+array_bag.cpp: In member function ‘virtual void array_bag::clear()’:
+array_bag.cpp:75:14: error: ‘nullptr’ was not declared in this scope
+   75 |  if (data != nullptr) {
+      |              ^~~~~~~
+cc1plus: all warnings being treated as errors
+In file included from main.cpp:4:
+set.hpp:8:11: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    8 |   set() = delete;
+      |           ^~~~~~
+set.hpp:9:28: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    9 |   set(const set& source) = delete;
+      |                            ^~~~~~
+set.hpp:10:39: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   10 |   set& operator=(const set& source) = delete;
+      |                                       ^~~~~~
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:17:13: error: ‘atoi’ was not declared in this scope
+   17 |   t->insert(atoi(argv[i]));
+      |             ^~~~
+main.cpp:25:23: error: ‘atoi’ was not declared in this scope
+   25 |   std::cout << t->has(atoi(argv[i])) << std::endl;
+      |                       ^~~~
+main.cpp:42:13: error: ‘atoi’ was not declared in this scope
+   42 |   st.insert(atoi(argv[i]));
+      |             ^~~~
+main.cpp:50:20: error: taking address of temporary array
+   50 |   sa.insert((int[]){ 1, 2, 3, 4, }, 4);
+      |                    ^~~~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors
+searchable_tree_bag.cpp:25:13: error: identifier ‘nullptr’ is a keyword in C++11 [-Werror=c++11-compat]
+   25 |  if(node == nullptr)
+      |             ^~~~~~~
+searchable_tree_bag.cpp: In member function ‘bool searchable_tree_bag::search(tree_bag::node*, int) const’:
+searchable_tree_bag.cpp:25:13: error: ‘nullptr’ was not declared in this scope
+cc1plus: all warnings being treated as errors
+In file included from set.cpp:1:
+set.hpp:8:11: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    8 |   set() = delete;
+      |           ^~~~~~
+set.hpp:9:28: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+    9 |   set(const set& source) = delete;
+      |                            ^~~~~~
+set.hpp:10:39: error: defaulted and deleted functions only available with ‘-std=c++11’ or ‘-std=gnu++11’ [-Werror]
+   10 |   set& operator=(const set& source) = delete;
+      |                                       ^~~~~~
+cc1plus: all warnings being treated as errors
+tree_bag.cpp:5:9: error: identifier ‘nullptr’ is a keyword in C++11 [-Werror=c++11-compat]
+    5 |  tree = nullptr;
+      |         ^~~~~~~
+tree_bag.cpp: In constructor ‘tree_bag::tree_bag()’:
+tree_bag.cpp:5:9: error: ‘nullptr’ was not declared in this scope
+tree_bag.cpp: In member function ‘tree_bag::node* tree_bag::extract_tree()’:
+tree_bag.cpp:26:9: error: ‘nullptr’ was not declared in this scope
+   26 |  tree = nullptr;
+      |         ^~~~~~~
+tree_bag.cpp: In member function ‘virtual void tree_bag::insert(int)’:
+tree_bag.cpp:40:16: error: ‘nullptr’ was not declared in this scope
+   40 |  new_node->l = nullptr;
+      |                ^~~~~~~
+tree_bag.cpp: In member function ‘virtual void tree_bag::clear()’:
+tree_bag.cpp:86:9: error: ‘nullptr’ was not declared in this scope
+   86 |  tree = nullptr;
+      |         ^~~~~~~
+tree_bag.cpp: In static member function ‘static void tree_bag::destroy_tree(tree_bag::node*)’:
+tree_bag.cpp:91:17: error: ‘nullptr’ was not declared in this scope
+   91 |  if (current != nullptr) {
+      |                 ^~~~~~~
+tree_bag.cpp: In static member function ‘static void tree_bag::print_node(tree_bag::node*)’:
+tree_bag.cpp:100:17: error: ‘nullptr’ was not declared in this scope
+  100 |  if (current != nullptr) {
+      |                 ^~~~~~~
+tree_bag.cpp: In static member function ‘static tree_bag::node* tree_bag::copy_node(tree_bag::node*)’:
+tree_bag.cpp:109:17: error: ‘nullptr’ was not declared in this scope
+  109 |  if (current == nullptr) {
+      |                 ^~~~~~~
+cc1plus: all warnings being treated as errors
+[0;31m❌ Reference compilation failed![0m
