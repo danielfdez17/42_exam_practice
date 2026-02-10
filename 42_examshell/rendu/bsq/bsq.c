@@ -11,8 +11,10 @@ int main(int ac, char **av)
 	{
 		if (convert_to_ptr(av[i]))
 		{
-			if (i < ac - 1)
+			if (i + 1 < ac)
+			{
 				fprintf(stdout, "\n");
+			}
 		}
 	}
 	return 0;
