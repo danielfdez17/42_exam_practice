@@ -1,50 +1,42 @@
-
-#ifndef VECT2_HPP
-#define VECT2_HPP
+#pragma once
 
 #include <iostream>
+using namespace std;
 
 class vect2
 {
-	private:
-		int x;
-		int y;
-	public:
-		vect2();
-		vect2(int num1, int num2);
-		vect2(const vect2& source);
-		vect2& operator=(const vect2& source);
+private:
+	int x;
+	int y;
+public:
+	vect2();
+	vect2(vect2 const&obj);
+	vect2 operator=(vect2 const&obj);
+	~vect2();
+	vect2(int x, int y);
 
-		int operator[](int index) const;
-		int& operator[](int index); // NON-COST
+	int &operator[](int idx);
+	int operator[](int idx) const;
+	
+	vect2 operator++();
+	vect2 operator++(int);
+	vect2 operator--();
+	vect2 operator--(int);
 
-		vect2 operator-() const;
-		vect2 operator*(int num) const;
+	vect2 operator+=(vect2 const&obj);
+	vect2 operator-=(vect2 const&obj);
+	vect2 operator*=(vect2 const&obj);
+	vect2 operator*=(int n);
+	vect2 operator*(int n) const;
+	
+	vect2 operator+(vect2 const&obj) const;
+	vect2 operator-(vect2 const&obj) const;
+	vect2 operator-();
+	
+	bool operator==(vect2 const&obj) const;
+	bool operator!=(vect2 const&obj) const;
 
-		vect2& operator*=(int num);
-
-		vect2& operator+=(const vect2& obj);
-		vect2& operator-=(const vect2& obj);
-		vect2& operator*=(const vect2& obj);
-
-		vect2 operator+(const vect2& obj) const;
-		vect2 operator-(const vect2& obj) const;
-		vect2 operator*(const vect2& obj) const;
-
-		vect2& operator++();
-		vect2 operator++(int);
-		vect2& operator--();
-		vect2 operator--(int);
-
-		bool operator==(const vect2& obj) const;
-		bool operator!=(const vect2& obj) const;
-
-		~vect2();
 };
 
-vect2 operator*(int num, const vect2& obj);
-
-std::ostream& operator<<(std::ostream& os,const vect2& obj);
-
-#endif
-
+ostream &operator<<(ostream&out, vect2 const& v1);
+vect2 operator*(int n, vect2 const &obj);
