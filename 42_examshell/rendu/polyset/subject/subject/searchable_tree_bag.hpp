@@ -14,4 +14,5 @@ public:
 	~searchable_tree_bag();
 
 	bool has(int value) const;
+	
 };

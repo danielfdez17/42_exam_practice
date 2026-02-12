@@ -2,21 +2,20 @@
 
 #include "searchable_bag.hpp"
 
-class set
+class set : public searchable_bag
 {
 private:
 	searchable_bag &mybag;
 public:
 	set() = delete;
-	~set();
-	set(set const&src) = delete;
-	set operator=(set const& src) = delete;
 	set(searchable_bag &bag);
-
-	void insert(int n);
-	void insert(int *data, int n);
-	bool has(int value) const;
-	void print() const;
-	void clear();
-	const searchable_bag &get_bag();
+	set(const set &) = delete;
+	set &operator=(const set &other) = delete;
+	~set();
+	virtual void insert (int value);
+	virtual void insert (int *data, int size);
+	virtual void print() const;
+	virtual void clear();
+	virtual bool has(int value) const;
+	searchable_bag &get_bag() const;
 };

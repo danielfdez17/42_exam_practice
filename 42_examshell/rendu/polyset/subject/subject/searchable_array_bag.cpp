@@ -7,32 +7,32 @@ searchable_array_bag::searchable_array_bag() : array_bag()
 }
 searchable_array_bag::searchable_array_bag(const searchable_array_bag &src) : array_bag(src)
 {
-	size = src.size;
-	data = new int[size];
-	for (int i = 0; i < size; i++) {
-		data[i] = src.data[i];
+	this->size = src.size;
+	this->data = new int[this->size];
+	for (int i = 0; i < this->size; i++) {
+		this->data[i] = src.data[i];
 	}
 }
 searchable_array_bag &searchable_array_bag::operator=(const searchable_array_bag &src)
 {
 	if (this != &src) {
-		if (data != nullptr) {
-			delete[] data;
-			data = nullptr;
+		if (this->data != nullptr) {
+			delete[] this->data;
+			this->data = nullptr;
 		}
-		size = src.size;
-		data = new int[size];
-		for (int i = 0; i < size; i++) {
-			data[i] = src.data[i];
+		this->size = src.size;
+		this->data = new int[size];
+		for (int i = 0; i < this->size; i++) {
+			this->data[i] = src.data[i];
 		}
 	}
 	return *this;
 }
 searchable_array_bag::~searchable_array_bag()
 {
-	if (data != nullptr) {
-		delete[] data;
-		data = nullptr;
+	if (this->data != nullptr) {
+		delete[] this->data;
+		this->data = nullptr;
 	}
 }
 
