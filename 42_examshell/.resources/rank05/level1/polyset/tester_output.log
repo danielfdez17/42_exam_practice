@@ -1,0 +1,8 @@
+[0;34m🔍 Running COMPREHENSIVE TESTING for polyset[0m
+==========================================
+
+[0;34m📦 Compiling reference solution...[0m
+/usr/bin/ld: /tmp/main-8aa5d1.o: in function `main':
+main.cpp:(.text+0x0): multiple definition of `main'; /tmp/main-3ddbad.o:main.cpp:(.text+0x0): first defined here
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+[0;31m❌ Reference compilation failed![0m

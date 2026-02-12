@@ -14,7 +14,7 @@ echo ""
 
 # Compile the reference solution
 echo -e "${BLUE}📦 Compiling reference solution...${NC}"
-g++ -Wall -Wextra -Werror -std=c++98 -o ref_polyset main.cpp *.cpp
+c++ -Wall -Wextra -Werror -o ref_polyset main.cpp *.cpp
 
 if [ $? -ne 0 ]; then
     echo -e "${RED}❌ Reference compilation failed!${NC}"
