@@ -1,0 +1,88 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+hidden.42.fr
+Linux 5.15.0-185-generic x86_64
+$> date
+Date hidden
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: git@vogsphere.42.fr:hidden.git
+
+= Git history ==================================================================
+$> git -C /tmp/tmp2qe22oo_/user log --pretty='%H - %an, %ad : %s'
+8622bd631be0113d4048e0a4a93a5b9d50038336 - Exam 42, Wed Jul 15 19:26:27 2026 -0300 : 1st commit
+ 
+= Collected files ==========================================
+$> ls -lAR /tmp/tmp2qe22oo_/user
+/tmp/tmp2qe22oo_/user:
+total 8
+-rw-r--r-- 1 root root  257 Jul 15 19:26 __GIT_HISTORY
+drwxr-xr-x 2 root root 4096 Jul 15 19:26 mini_serv
+
+/tmp/tmp2qe22oo_/user/mini_serv:
+total 4
+-rw-r--r-- 1 root root 3597 Jul 15 19:26 mini_serv.c
+ 
+= mini_serv ====================================================================
+$> cc -Wextra -Wall -Werror mini_serv.c fcntl.c -o user_exe 
+
+$> cc -Wextra -Wall -Werror main.c fcntl.c -o ref_exe 
+
+= Test 1 ===================================================
+$> ./tpl3naqy2tkx6pumzt5h4n19
+$> ./tpl3naqy2tkx6pumzt5h4n19
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./wpfq3xmybtp0gpcagzocynbc 22
+$> ./wpfq3xmybtp0gpcagzocynbc 22
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./tester ./gpfxzc92q35b05i0d6ekdm3t generated3.test 5424300 | sort
+$> ./tester ./gpfxzc92q35b05i0d6ekdm3t generated3.test 5424300 | sort
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./tester ./o8rkaqmeyt8h5blbfj4q3mdt generated4.test 4741342 | sort
+$> ./tester ./o8rkaqmeyt8h5blbfj4q3mdt generated4.test 4741342 | sort
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./tester ./g6f0twbw8iakmkxwee03chq2 generated5.test 14096259 | sort
+$> ./tester ./g6f0twbw8iakmkxwee03chq2 generated5.test 14096259 | sort
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./tester ./ytbce65zf3fmp252yhichz5w generated6.test 2034313 | sort
+$> ./tester ./ytbce65zf3fmp252yhichz5w generated6.test 2034313 | sort
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./tester ./qiexvx2qlsae6k2cqlb0v56i generated7.test 6408163 | sort
+$> ./tester ./qiexvx2qlsae6k2cqlb0v56i generated7.test 6408163 | sort
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./tester ./k0qov6wr9rnqjnyyrhm3r8bg generated8.test 12568626 | sort
+$> ./tester ./k0qov6wr9rnqjnyyrhm3r8bg generated8.test 12568626 | sort
+$> diff -U 3 user_output_test8 test8.output | cat -e
+
+Diff OK :D
+= Test 9 ===================================================
+$> ./tester ./9ksa2gqq41siejrzy41cit7s generated9.test 3330800 | sort
+$> ./tester ./9ksa2gqq41siejrzy41cit7s generated9.test 3330800 | sort
+$> diff -U 3 user_output_test9 test9.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================
