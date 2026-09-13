@@ -24,7 +24,7 @@
 void    send_all(fd_set *sets, int except, char *sb)
 {
     int fd = -1;
-    while (++fd)
+    while (++fd < 1024)
     {
         if (FD_ISSET(fd, &sets[2]) && fd != except)
             send(fd, sb, strlen(sb), MSG_NOSIGNAL);
