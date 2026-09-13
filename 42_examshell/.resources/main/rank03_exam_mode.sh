@@ -51,6 +51,11 @@ prepare_subject() {
         "scanf")
             touch "$base_dir/../../rendu/$chosen/ft_scanf.c"
             ;;
+        "tsp")
+        	[ ! -f "$base_dir/../../rendu/$chosen/tsp.c" ] && \
+                	cp "$base_dir/../$rank/$level/tsp/tsp.c" "$base_dir/../../rendu/$chosen/tsp.c"
+                touch "$base_dir/../../rendu/$chosen/tsp.h"
+                ;;
         *)
             # For other subjects, create generic .c file
             touch "$base_dir/../../rendu/$chosen/$chosen.c"
@@ -108,7 +113,7 @@ while true; do
             echo -e "${RED}Exiting exam mode...${RESET}"
             rm -f "$subject_file"
             cd "$base_dir"
-            exit 0
+            exit 255
             ;;
         *)
             echo -e "${RED}Unknown command. Use 'test', 'next', or 'exit'.${RESET}"

@@ -41,16 +41,9 @@ setup_files() {
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.c" ] && touch "$base_dir/../../rendu/$chosen/$chosen.c"
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.h" ] && touch "$base_dir/../../rendu/$chosen/$chosen.h"
     else
-        # Level1 → create .cpp and .hpp
+        # Level1 → create .cpp and .hpp only if missing
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.cpp" ] && touch "$base_dir/../../rendu/$chosen/$chosen.cpp"
-
-        if [ ! -f "$base_dir/../../rendu/$chosen/$chosen.hpp" ]; then
-            if [ -f "$base_dir/../rank05/$level/$chosen/$chosen.hpp" ]; then
-                cp "$base_dir/../rank05/$level/$chosen/$chosen.hpp" "$base_dir/../../rendu/$chosen/$chosen.hpp"
-            else
-                touch "$base_dir/../../rendu/$chosen/$chosen.hpp"
-            fi
-        fi
+        [ ! -f "$base_dir/../../rendu/$chosen/$chosen.hpp" ] && touch "$base_dir/../../rendu/$chosen/$chosen.hpp"
     fi
 
     # Special case: Polyset for rank05 level1
@@ -98,10 +91,10 @@ while true; do
         test)
             clear
             echo -e "${GREEN}Running tester.sh...${RESET}"
-            output=$(./tester.sh 2>&1)
+			output=$(yes '' | ./tester.sh 2>&1 | tee tester_output.log)
             echo "$output" | tee tester_output.log
 
-            if echo "$output" | grep -q "PASSED"; then
+            if echo "$output" | grep -q "ALL TESTS PASSED!"; then
                 echo -e "${GREEN}${BOLD}✔️  Passed!${RESET}"
                 rm -f "$subject_file"
                 sleep 1
@@ -111,6 +104,9 @@ while true; do
                 sleep 1
           
             fi
+
+			echo
+            echo "Please type 'test' to test code, 'next' for next or 'exit' for exit."
             ;;
         next)
             echo -e "${BLUE}🔄 Picking a new subject...${RESET}"
@@ -127,6 +123,10 @@ while true; do
             ;;
         exit)
             echo "Exiting..."
+			rendu_path="$base_dir/../../rendu"
+			if [[ -d "$rendu_path" && "$rendu_path" == *"/rendu" ]]; then
+				rm -rf "$rendu_path"
+			fi
             exit 0
             ;;
         *)

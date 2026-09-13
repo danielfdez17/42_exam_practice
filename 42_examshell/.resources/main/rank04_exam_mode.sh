@@ -74,7 +74,26 @@ while true; do
         test)
             clear
             echo -e "${GREEN}Running tester.sh...${RESET}"
-            output=$(./tester.sh 2>&1)
+            ./tester.sh > tester_output.log 2>&1 &
+            pid=$!
+            slept=0
+            while [ $slept -lt 10 ] && kill -0 $pid 2>/dev/null; do
+                sleep 1
+                slept=$((slept+1))
+            done
+            
+            if kill -0 $pid 2>/dev/null; then
+                echo -e "${RED}${BOLD}TIMEOUT${RESET}"
+                echo "It can be because of infinite loop "
+                echo "Please check your code or just try again."
+                pkill -P $pid 2>/dev/null
+                killall -9 out1 out2 2>/dev/null
+                kill -9 $pid 2>/dev/null
+                sleep 1
+                exit 1
+            fi
+            
+            output=$(cat tester_output.log)
             echo "$output" | tee tester_output.log
 
             if echo "$output" | grep -q "PASSED"; then
@@ -96,7 +115,7 @@ while true; do
             ;;
         exit)
             echo "Exiting..."
-            exit 0
+            exit 255
             ;;
         *)
             echo "Please type 'test' to test code, 'next' for next or 'exit' for exit."

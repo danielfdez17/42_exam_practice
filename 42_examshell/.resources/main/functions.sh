@@ -16,9 +16,9 @@ display_animation() {
             clear_screen
             printf "$(tput setaf 2)$(tput bold)Please wait... %s\n\n" "$frame"
             sleep $duration
-            $(tput sgr0)
+            tput sgr0
         done
-        $(tput sgr0)
+        tput sgr0
     done
-    $(tput sgr0)
+    tput sgr0
 }

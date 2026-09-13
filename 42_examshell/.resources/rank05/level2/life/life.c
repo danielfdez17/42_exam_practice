@@ -5,7 +5,7 @@ int init_game(t_game* game, char* argv[])
 	game->width = atoi(argv[1]);
 	game->height = atoi(argv[2]);
 	game->iterations = atoi(argv[3]);
-	game->alive = '0';
+	game->alive = 'O';
 	game->dead = ' ';
 	game->i = 0;
 	game->j = 0;

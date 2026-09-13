@@ -44,16 +44,9 @@ prepare_subject() {
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.c" ] && touch "$base_dir/../../rendu/$chosen/$chosen.c"
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.h" ] && touch "$base_dir/../../rendu/$chosen/$chosen.h"
     else
-        # Level1 → create .cpp and .hpp
+        # Level1 → create .cpp and .hpp only if missing
         [ ! -f "$base_dir/../../rendu/$chosen/$chosen.cpp" ] && touch "$base_dir/../../rendu/$chosen/$chosen.cpp"
-
-        if [ ! -f "$base_dir/../../rendu/$chosen/$chosen.hpp" ]; then
-            if [ -f "$base_dir/../rank05/$level/$chosen/$chosen.hpp" ]; then
-                cp "$base_dir/../rank05/$level/$chosen/$chosen.hpp" "$base_dir/../../rendu/$chosen/$chosen.hpp"
-            else
-                touch "$base_dir/../../rendu/$chosen/$chosen.hpp"
-            fi
-        fi
+        [ ! -f "$base_dir/../../rendu/$chosen/$chosen.hpp" ] && touch "$base_dir/../../rendu/$chosen/$chosen.hpp"
     fi
 
     # Special case: Polyset for rank05 level1
@@ -98,10 +91,29 @@ while true; do
         test)
             clear
             echo -e "${GREEN}Running tester.sh...${RESET}"
-            output=$(./tester.sh 2>&1)
+            ./tester.sh > tester_output.log 2>&1 &
+            pid=$!
+            slept=0
+            while [ $slept -lt 10 ] && kill -0 $pid 2>/dev/null; do
+                sleep 1
+                slept=$((slept+1))
+            done
+            
+            if kill -0 $pid 2>/dev/null; then
+                echo -e "${RED}${BOLD}TIMEOUT${RESET}"
+                echo "It can be because of infinite loop "
+                echo "Please check your code or just try again."
+                pkill -P $pid 2>/dev/null
+                killall -9 out1 out2 2>/dev/null
+                kill -9 $pid 2>/dev/null
+                sleep 1
+                exit 1
+            fi
+            
+            output=$(cat tester_output.log)
             echo "$output" | tee tester_output.log
 
-            if echo "$output" | grep -q "PASSED"; then
+            if echo "$output" | grep -q "ALL TESTS PASSED"; then
                 echo -e "${GREEN}${BOLD}✔️  Passed!${RESET}"
                 rm -f "$subject_file"
                 sleep 1
@@ -120,7 +132,7 @@ while true; do
             ;;
         exit)
             echo "Exiting..."
-            exit 0
+            exit 255 
             ;;
         *)
             echo "Please type 'test' to test code, 'next' for next or 'exit' for exit."
