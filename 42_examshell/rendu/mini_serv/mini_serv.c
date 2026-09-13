@@ -61,7 +61,7 @@ int create_server(int ac, char **av, fd_set *sets, char (**msgp)[100000])
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = htonl(2130706433);
-    addr.sin_port = atoi(av[1]);
+    addr.sin_port = htons(atoi(av[1]));
     if (!*msgp || sock < 0 || bind(sock, (void *)&addr, sizeof(addr)) < 0 || listen(sock, 128) < 0)
     {
         write(2, "Fatal error\n", 12);
