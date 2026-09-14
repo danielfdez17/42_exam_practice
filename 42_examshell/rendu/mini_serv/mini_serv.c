@@ -20,6 +20,11 @@
  *               the descriptors that should receive the message.
  * @param except The descriptor that must not receive the message.
  * @param sb     The null-terminated message to broadcast.
+ * 
+ * 
+ * 
+ * 
+ * 6 lines
  */
 void    send_all(fd_set *sets, int except, char *sb)
 {
@@ -46,6 +51,10 @@ void    send_all(fd_set *sets, int except, char *sb)
  * @param sets  The descriptor-set array shared with the event loop.
  * @param msgp  Output pointer receiving the allocated per-descriptor buffers.
  * @return      The file descriptor of the listening socket.
+ * 
+ * 
+ * 
+ * 21 lines
  */
 int create_server(int ac, char **av, fd_set *sets, char (**msgp)[100000])
 {
@@ -87,6 +96,10 @@ int create_server(int ac, char **av, fd_set *sets, char (**msgp)[100000])
  * @param id   Per-descriptor storage for the server-assigned client ids.
  * @param msg  Per-descriptor storage for incomplete client messages.
  * @return     Always 0; errors from accept() are treated as no-op events.
+ * 
+ * 
+ * 
+ * 21 lines
  */
 int client_event(int fd, fd_set *sets, int *id, char (*msg)[100000])
 {
@@ -128,6 +141,10 @@ int client_event(int fd, fd_set *sets, int *id, char (*msg)[100000])
  * @param id   Per-descriptor storage for the server-assigned client ids.
  * @param msg  Per-descriptor buffers containing incomplete client messages.
  * @return     Always 0, including when the client is disconnected.
+ * 
+ * 
+ * 
+ * 19 lines
  */
 int handle_msg(int fd, fd_set *sets, int *id, char (*msg)[100000])
 {
@@ -166,6 +183,10 @@ int handle_msg(int fd, fd_set *sets, int *id, char (*msg)[100000])
  * @param ac The argument count; the program expects exactly one port.
  * @param av The argument vector containing the port to listen on.
  * @return  Never normally reached; returns 0 if the loop is exited.
+ * 
+ * 
+ * 
+ * 24 lines
  */
 int main(int ac, char **av)
 {
